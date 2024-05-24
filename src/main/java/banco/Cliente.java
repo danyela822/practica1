@@ -3,7 +3,7 @@ package banco;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Cliente implements ServicioCuentas{
+public class Cliente implements ServicioCuentas, Comparable<Cliente>{
 
     private Integer numero;
     private String nombre;
@@ -62,8 +62,13 @@ public class Cliente implements ServicioCuentas{
     }
 
     @Override
-    public Cuenta[] obtenerCuentas() {
-        return cuentas.toArray(new Cuenta[cuentas.size()]);
+    public ArrayList<Cuenta> obtenerCuentas() {
+        return cuentas;
+    }
+
+    @Override
+    public int compareTo(Cliente otroCliente) {
+        return numero - otroCliente.getNumero();
     }
 
     public Integer getNumero() {
@@ -125,13 +130,13 @@ public class Cliente implements ServicioCuentas{
     @Override
     public String toString() {
         return "Cliente{" +
-                "numero: " + numero +
-                "nombre: '" + nombre + '\'' +
-                "domicilio: " + domicilio +
-                "rtc: '" + rfc + '\'' +
-                "telefono: '" + telefono + '\'' +
-                "cuentas: " + cuentas +
-                "fechaNacimiento: '" + fechaNacimiento + '\'' +
+                ", numero: " + numero +
+                ", nombre: " + nombre +
+                ", domicilio: " + domicilio +
+                ", rtc: " + rfc +
+                ", telefono: " + telefono +
+                ", cuentas: " + cuentas +
+                ", fechaNacimiento: " + fechaNacimiento +
                 '}';
     }
     public String mostrarInfoCuentas() {

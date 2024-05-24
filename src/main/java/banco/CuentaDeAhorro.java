@@ -12,11 +12,4 @@ public class CuentaDeAhorro extends Cuenta{
     public Double calcularIntereses(){
         return 0.0;
     }
-
-    @Override
-    public String toString() {
-        return "CuentaDeAhorro{" +
-                "tasaInteresMensual=" + tasaInteresMensual +
-                '}';
-    }
 }

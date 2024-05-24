@@ -8,11 +8,4 @@ public class CuentaDeCheque extends Cuenta{
         super(saldo, numero);
         this.costoMensual = costoMensual;
     }
-
-    @Override
-    public String toString() {
-        return "CuentaDeCheque{" +
-                "costoMensual=" + costoMensual +
-                '}';
-    }
 }

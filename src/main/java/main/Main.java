@@ -7,6 +7,8 @@ import banco.CuentaDeCheque;
 import banco.Cliente;
 import banco.Domicilio;
 
+import java.util.*;
+
 public class Main {
 
     public static Banco banco;
@@ -24,7 +26,7 @@ public class Main {
         // ------------------------------------------------- Cliente ---------------------------------------------- //
         Cliente cliente1 = new Cliente(1,"Cliente 1", domicilio1, "rfc 1", "Telefono 1", "fecha 1");
         Cliente cliente2 = new Cliente(2,"Cliente 2", domicilio2, "rfc 2", "Telefono 2", "fecha 2");
-        cliente = new Cliente(3, "Cliente 3", domicilio4, "rfc4", "Telefono 4", "fecha 4");
+        cliente = new Cliente(3, "Cliente 3", domicilio4, "rfc 4", "Telefono 4", "fecha 4");
 
         // ------------------------------------------------- Cuentas ---------------------------------------------- //
 
@@ -81,7 +83,7 @@ public class Main {
         System.out.println("Consultado: \n" + clienteBuscar.mostrarInfoCliente());
 
         //Obtener
-        Cliente[] clientes = banco.obtenerClientes();
+        TreeSet<Cliente> clientes = banco.obtenerClientes();
         System.out.println("\nTodos los clientes:\n");
         for (Cliente cliente : clientes) {
             System.out.println(cliente.mostrarInfoCliente());
@@ -90,6 +92,13 @@ public class Main {
         //Buscar por RFC
         Cliente clienteRFC = banco.buscarClientesPorRFC("rfc 2");
         System.out.println("Cliente RFC: \n" + clienteRFC.mostrarInfoCliente());
+
+
+        //Ordenar (TreeSet ordena automaicamente en forma ascendente)
+        System.out.println("\nClientes ordendos por ID (Mayor a menor)");
+        for (Cliente cliente : banco.getClientes()) {
+            System.out.println(cliente.toString());
+        }
     }
 
     public static void llamarMetodosCuentas(){
@@ -122,9 +131,16 @@ public class Main {
         System.out.println("Se retiran 100000.0. Nuevo saldo es: " + cuentaAhorro3.getSaldo());
 
         //Obtener
-        Cuenta[] cuentas = cliente.obtenerCuentas();
-        System.out.println("Todas las Cuentas de Cliente: "+cliente.getNumero());
+        ArrayList<Cuenta> cuentas = cliente.obtenerCuentas();
+        System.out.println("Todas las Cuentas de Cliente con Id: "+cliente.getNumero());
         for (Cuenta cuenta : cuentas) {
+            System.out.println(cuenta.toString());
+        }
+
+        //Ordenar
+        System.out.println("\nCuentas de un cliente por orden de saldo (Mayor a menor)");
+        Collections.sort(cliente.getCuentas());
+        for (Cuenta cuenta : cliente.getCuentas()) {
             System.out.println(cuenta.toString());
         }
     }

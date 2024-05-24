@@ -59,11 +59,11 @@ public class Domicilio {
     @Override
     public String toString() {
         return "{" +
-                "calle='" + calle + '\'' +
-                ", numero=" + numero +
-                ", colonia='" + colonia + '\'' +
-                ", estado='" + estado + '\'' +
-                ", codigoPostal=" + codigoPostal +
+                "calle= " + calle +
+                ", numero= " + numero +
+                ", colonia= " + colonia +
+                ", estado= " + estado +
+                ", codigoPostal= " + codigoPostal +
                 '}';
     }
 }
