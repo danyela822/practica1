@@ -34,31 +34,24 @@ public class Cliente implements ServicioCuentas, Comparable<Cliente>{
 
     @Override
     public boolean cancelarCuenta(Integer numero) {
-        for(Cuenta cuenta: cuentas){
-            if (Objects.equals(cuenta.getNumero(), numero)){
-                cuentas.remove(cuenta);
-                return true;
-            }
-        }
-        return false;
+        return cuentas.removeIf(cuenta -> Objects.equals(cuenta.getNumero(), numero));
     }
 
     @Override
     public void abonarCuenta(Integer numero, Double abono) {
-        for (Cuenta cuenta : cuentas){
-            if (Objects.equals(cuenta.getNumero(), numero)){
-                cuenta.setSaldo(cuenta.getSaldo() + abono);
-            }
-        }
+        cuentas.stream()
+                .filter(cuenta -> Objects.equals(cuenta.getNumero(), numero))
+                .findFirst()
+                .ifPresent(cuenta -> cuenta.setSaldo(cuenta.getSaldo() + abono));
     }
+
 
     @Override
     public void retirar(Integer numero, Double retiro) {
-        for (Cuenta cuenta : cuentas){
-            if (Objects.equals(cuenta.getNumero(), numero)){
-                cuenta.setSaldo(cuenta.getSaldo() - retiro);
-            }
-        }
+        cuentas.stream()
+                .filter(cuenta -> Objects.equals(cuenta.getNumero(), numero))
+                .findFirst()
+                .ifPresent(cuenta -> cuenta.setSaldo(cuenta.getSaldo() - retiro));
     }
 
     @Override

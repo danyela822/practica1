@@ -88,23 +88,16 @@ public class Banco implements ServicioClientes{
 
     @Override
     public boolean eliminarCliente(Integer numero) {
-        for(Cliente cliente: clientes){
-            if (Objects.equals(cliente.getNumero(), numero)){
-                clientes.remove(cliente);
-                return true;
-            }
-        }
-        return false;
+        return clientes.removeIf(cliente -> Objects.equals(cliente.getNumero(), numero));
     }
+
 
     @Override
     public Cliente consultarCliente(Integer numero) {
-        for (Cliente cliente : clientes) {
-            if (Objects.equals(cliente.getNumero(), numero)){
-                return cliente;
-            }
-        }
-        return null;
+        return clientes.stream()
+                .filter(cliente -> Objects.equals(cliente.getNumero(), numero))
+                .findFirst()
+                .orElse(null);
     }
 
     @Override
@@ -114,11 +107,9 @@ public class Banco implements ServicioClientes{
 
     @Override
     public Cliente buscarClientesPorRFC(String rfc) {
-        for (Cliente cliente : clientes) {
-            if (cliente.getRfc().equals(rfc)) {
-                return cliente;
-            }
-        }
-        return null;
+        return clientes.stream()
+                .filter(cliente -> cliente.getRfc().equals(rfc))
+                .findFirst()
+                .orElse(null);
     }
 }
