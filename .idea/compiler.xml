@@ -5,6 +5,12 @@
       <module name="actividad6" target="17" />
       <module name="actividad6.main" target="17" />
       <module name="actividad6.test" target="17" />
+      <module name="actividad7" target="17" />
+      <module name="actividad7_main" target="17" />
+      <module name="actividad7_test" target="17" />
+      <module name="actividad8" target="17" />
+      <module name="actividad8.main" target="17" />
+      <module name="actividad8.test" target="17" />
       <module name="practica1" target="17" />
       <module name="practica1.main" target="17" />
       <module name="practica1.test" target="17" />

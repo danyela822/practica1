@@ -12,6 +12,15 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/actividad8" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../../../Gradle 8.1.1" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/actividad8" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/practica1" />
         <option name="gradleHome" value="$PROJECT_DIR$/../../../../Gradle 8.1.1" />
         <option name="modules">
