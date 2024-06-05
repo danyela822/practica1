@@ -46,7 +46,7 @@ public abstract class Cuenta implements Comparable<Cuenta>{
 
     @Override
     public String toString() {
-        return "{ numero: " + numero + ", fechaApertura: " + fechaApertura + ", saldo: " + saldo + ", fechaCancelacion: " + fechaCancelacion + "}";
+        return "{ numero: " + numero + ", fechaApertura: " + fechaApertura + ", saldo: " + saldo + ", fechaCancelacion: " + fechaCancelacion + " }";
     }
 
     @Override
